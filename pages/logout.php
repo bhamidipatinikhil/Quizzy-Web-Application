@@ -5,7 +5,7 @@
     session_unset();
     session_destroy();
 
-    header("location: firstpage.php");
+    header("location: ../index.php");
     exit;
 
 

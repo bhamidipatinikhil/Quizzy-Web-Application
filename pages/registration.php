@@ -9,9 +9,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
     $tagline = $_POST['tagline'];
+	$aadhaar = $_POST['aadhaar'];
+	$phonenumber = $_POST['phonenumber'];
+	$nickname = $_POST['nickname'];
 
-    $sql = "insert into `players` (username, password, firstname, lastname, email, tagline) values ('$username', '$password', '$firstname', '$lastname', '$email', '$tagline')";
-    $result = mysqli_query($conn, $sql);
+    $sql = "INSERT INTO `players` (`firstname`, `lastname`, `username`, `email`, `password`, `tagline`, `aadhaar`, `phonenumber`, `nickname`, `rating`) VALUES ('$firstname', '$lastname', '$username', '$email', '$password', '$tagline', '$aadhaar', '$phonenumber', '$nickname', 0)";
+	$result = mysqli_query($conn, $sql);
     header("location: login.php");
 
 
@@ -67,6 +70,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	   <br>
 	   <input type="password" required name="cpassword" id="cpassword" placeholder="Re-enter Your Password"> 
 	   <br><br>
+	   <label>Aadhaar Number</label><br>
+	   <input type="text" name="aadhaar" id="aadhaar" placeholder="Enter Aadhaar Number"><br><br>
+	   <label>Phone Number</label><br>
+	   <input type="text" name="phonenumber" id="phonenumber" placeholder="Enter Phone Number"><br><br>
+
+	   <label>NickName</label><br>
+	   <input type="text" name="nickname" id="nickname" placeholder="Enter Nickname"><br><br>
 	   <input type="submit" value="submit" name="submit" id="submit">
        <br><br>
 </form>
